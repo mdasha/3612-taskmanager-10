@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const TASK_COUNT = 3;
 
 const createMenuTemplate = () => {
@@ -32,7 +32,7 @@ const createMenuTemplate = () => {
     `          >\n` +
     `        </section>\n`
   );
-}
+};
 
 const createFilterTemplate = () => {
   return (
@@ -105,7 +105,7 @@ const createFilterTemplate = () => {
     `        >\n` +
     `      </section>`
   );
-}
+};
 
 const createBoardTemplate = () => {
   return (
@@ -118,13 +118,13 @@ const createBoardTemplate = () => {
     `\n` +
     `        <div class="board__tasks"></div>`
   );
-}
+};
 
 const createButtonLoadMore = () => {
   return (
     `<button class="load-more" type="button">load more</button>`
   );
-}
+};
 
 
 const createCardEditTemplate = () => {
@@ -385,7 +385,7 @@ const createCardEditTemplate = () => {
     `            </form>\n` +
     `          </article>`
   );
-}
+};
 
 const createCardTemplate = () => {
   return (
@@ -455,11 +455,11 @@ const createCardTemplate = () => {
     `            </div>\n` +
     `          </article>`
   );
-}
+};
 
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
-}
+};
 
 const siteMainControlElement = document.querySelector(`.main__control`);
 const siteMainElement = document.querySelector(`.main`);
