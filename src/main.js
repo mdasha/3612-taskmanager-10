@@ -127,7 +127,6 @@ const createButtonLoadMore = () => {
   );
 };
 
-
 const createCardEditTemplate = () => {
   return (
     `<article class="card card--edit card--yellow card--repeat">
@@ -464,7 +463,6 @@ const render = (container, template, place) => {
 
 const siteMainControlElement = document.querySelector(`.main__control`);
 const siteMainElement = document.querySelector(`.main`);
-
 
 render(siteMainControlElement, createMenuTemplate(), `beforeend`);
 render(siteMainElement, createFilterTemplate(), `beforeend`);
