@@ -25,7 +25,7 @@ render(boardContainer, createCardEditTemplate(), `beforeend`);
 new Array(TASK_COUNT)
   .fill(``)
   .forEach(
-    () => render(boardContainer, createCardTemplate(), `beforeend`)
+      () => render(boardContainer, createCardTemplate(), `beforeend`)
   );
 
 render(boardContainer, createButtonLoadMore(), `beforeend`);
