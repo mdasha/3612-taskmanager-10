@@ -7,12 +7,12 @@ import {createCardTemplate} from './components/card.js';
 
 const TASK_COUNT = 3;
 
+const siteMainControlElement = document.querySelector(`.main__control`);
+const siteMainElement = document.querySelector(`.main`);
+
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
-
-const siteMainControlElement = document.querySelector(`.main__control`);
-const siteMainElement = document.querySelector(`.main`);
 
 render(siteMainControlElement, createMenuTemplate(), `beforeend`);
 render(siteMainElement, createFilterTemplate(), `beforeend`);
