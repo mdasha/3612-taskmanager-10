@@ -1,4 +1,3 @@
-'use strict';
 const TASK_COUNT = 3;
 
 import {createMenuTemplate} from './components/menu.js';
