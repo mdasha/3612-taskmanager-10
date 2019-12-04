@@ -1,3 +1,4 @@
+'use strict';
 const TASK_COUNT = 3;
 
 import {createMenuTemplate} from './components/menu.js';
@@ -13,6 +14,7 @@ const render = (container, template, place) => {
 
 const siteMainControlElement = document.querySelector(`.main__control`);
 const siteMainElement = document.querySelector(`.main`);
+
 
 render(siteMainControlElement, createMenuTemplate(), `beforeend`);
 render(siteMainElement, createFilterTemplate(), `beforeend`);
