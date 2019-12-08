@@ -24,7 +24,7 @@ const Tags = [
   `keks`
 ];
 
-const getRandomArrayItem = (array)  => {
+const getRandomArrayItem = (array) => {
   const randomIndex = getRandomIntegerNumber(0, array.length);
   return array[randomIndex];
 };
@@ -33,7 +33,7 @@ const getRandomIntegerNumber = (min, max) => {
   return min + Math.floor(max * Math.random());
 };
 
-const getRandomDate  = () => {
+const getRandomDate = () => {
   const targetDate = new Date();
   const sign = Math.random > 5 ? 1 : -1;
   const diffValue = sign * getRandomIntegerNumber(0, 25);
@@ -45,8 +45,8 @@ const getRandomDate  = () => {
 
 const generateRepeatingDays = () => {
   return Object.assign({}, RepeatingDays, {
-    'mo' : Math.random() > 0.5,
-  })
+    'mo': Math.random() > 0.5,
+  });
 };
 
 const generateTags = () => {
@@ -72,7 +72,7 @@ const generateTask = () => {
 const generateTasks = (count) => {
   return new Array(count)
     .fill(``)
-    .map(generateTask)
+    .map(generateTask);
 };
 
 export {generateTask, generateTasks};

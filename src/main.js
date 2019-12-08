@@ -4,7 +4,7 @@ import {createBoardTemplate} from './components/board.js';
 import {createButtonLoadMore} from './components/button-load-more.js';
 import {createCardEditTemplate} from './components/card-edition.js';
 import {createCardTemplate} from './components/card.js';
-import {generateTasks}  from './mock/task.js';
+import {generateTasks} from './mock/task.js';
 import {generateFilters} from "./mock/filter.js";
 
 const TASK_COUNT = 22;
@@ -47,4 +47,3 @@ loadMoreButton.addEventListener(`click`, () => {
     loadMoreButton.remove();
   }
 });
-
