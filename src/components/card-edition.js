@@ -1,7 +1,7 @@
 import {colors, days, monthNames} from '../const.js';
 import {formatTime, isExpired} from '../utils.js';
 
-const createColorsMarkup = (colors, currentColor) => {
+const createColorsMarkup = (currentColor) => {
   return colors
     .map((color) => {
       return (
@@ -23,7 +23,7 @@ const createColorsMarkup = (colors, currentColor) => {
     .join(`\n`);
 };
 
-const createRepeatingDaysMarkup = (days, repeatingDays) => {
+const createRepeatingDaysMarkup = (repeatingDays) => {
   return days
     .map((day) => {
       const isChecked = repeatingDays[day];
@@ -172,4 +172,4 @@ const createCardEditTemplate = (task) => {
   );
 };
 
-export {createCardEditTemplate}
+export {createCardEditTemplate};
