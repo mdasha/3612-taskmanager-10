@@ -5,7 +5,7 @@ import {createButtonLoadMore} from './components/button-load-more.js';
 import {createCardEditTemplate} from './components/card-edition.js';
 import {createCardTemplate} from './components/card.js';
 import {generateTasks} from './mock/task.js';
-import {generateFilters} from "./mock/filter.js";
+import {generateFilters} from './mock/filter.js';
 
 const TASK_COUNT = 22;
 const SHOWING_TASKS_COUNT_ON_START = 8;
@@ -24,26 +24,26 @@ const filters = generateFilters();
 render(siteMainElement, createFilterTemplate(filters), `beforeend`);
 render(siteMainElement, createBoardTemplate(), `beforeend`);
 
-const boardContainer = document.querySelector(`.board__tasks`);
+const taskListElement = document.querySelector(`.board__tasks`);
 const tasks = generateTasks(TASK_COUNT);
 
-render(boardContainer, createCardEditTemplate(tasks[0]), `beforeend`);
+render(taskListElement, createCardEditTemplate(tasks[0]), `beforeend`);
 let showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
 
-tasks.slice(1, showingTasksCount).forEach((task) => render(boardContainer, createCardTemplate(task), `beforeend`));
+tasks.slice(1, showingTasksCount).forEach((task) => render(taskListElement, createCardTemplate(task), `beforeend`));
 
 const boardElement = siteMainElement.querySelector(`.board`);
 render(boardElement, createButtonLoadMore(), `beforeend`);
 
-const loadMoreButton = boardElement.querySelector(`.load-more`);
-loadMoreButton.addEventListener(`click`, () => {
+const loadMoreButtonElement = boardElement.querySelector(`.load-more`);
+loadMoreButtonElement.addEventListener(`click`, () => {
   const prevTasksCount = showingTasksCount;
   showingTasksCount = showingTasksCount + SHOWING_TASKS_COUNT_BY_BUTTON;
 
   tasks.slice(prevTasksCount, showingTasksCount)
-    .forEach((task) => render(boardContainer, createCardTemplate(task), `beforeend`));
+    .forEach((task) => render(taskListElement, createCardTemplate(task), `beforeend`));
 
   if (showingTasksCount >= tasks.length) {
-    loadMoreButton.remove();
+    loadMoreButtonElement.remove();
   }
 });

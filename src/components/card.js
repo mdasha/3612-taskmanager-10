@@ -1,5 +1,5 @@
-import {MonthNames} from "../const.js";
-import {formatTime} from "../utils.js";
+import {monthNames} from '../const.js';
+import {formatTime, isExpired} from '../utils.js';
 
 const createHashtagsMarkup = (hashtags) => {
   return hashtags
@@ -15,18 +15,16 @@ const createHashtagsMarkup = (hashtags) => {
     .join(`\n`);
 };
 
-export const createCardTemplate = (task) => {
+const createCardTemplate = (task) => {
   const {description, tags, dueDate, color, repeatingDays} = task;
-
-  const isExpired = dueDate instanceof Date && dueDate < (Date.now() - 604800000);
   const isDateShowing = !!dueDate;
 
-  const date = isDateShowing ? `${dueDate.getDate()} ${MonthNames[dueDate.getMonth()]}` : ``;
+  const date = isDateShowing ? `${dueDate.getDate()} ${monthNames[dueDate.getMonth()]}` : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
 
   const hashtags = createHashtagsMarkup(Array.from(tags));
   const repeatClass = Object.values(repeatingDays).some(Boolean) ? `card--repeat` : ``;
-  const deadlineClass = isExpired ? `card--deadline` : ``;
+  const deadlineClass = isExpired(dueDate) ? `card--deadline` : ``;
 
   return (
     `<article class="card card--${color} ${repeatClass} ${deadlineClass}">
@@ -79,3 +77,5 @@ export const createCardTemplate = (task) => {
     </article>`
   );
 };
+
+export {createCardTemplate};

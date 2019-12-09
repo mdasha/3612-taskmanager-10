@@ -1,8 +1,10 @@
-export const Colors = [`black`, `yellow`, `blue`, `green`, `pink`];
+const WEEK_IN_MS = 604800000;
 
-export const Days = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
+const colors = [`black`, `yellow`, `blue`, `green`, `pink`];
 
-export const MonthNames = [
+const days = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
+
+const monthNames = [
   `January`,
   `February`,
   `March`,
@@ -16,3 +18,5 @@ export const MonthNames = [
   `November`,
   `December`
 ];
+
+export {WEEK_IN_MS, colors, days, monthNames};
