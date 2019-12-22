@@ -1,4 +1,4 @@
-export const createBoardTemplate = () => {
+const createBoardTemplate = () => {
   return (
     `<section class="board container">
         <div class="board__filter-list">
@@ -11,3 +11,5 @@ export const createBoardTemplate = () => {
      </section>`
   );
 };
+
+export {createBoardTemplate};
