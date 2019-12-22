@@ -1,4 +1,4 @@
-import {WEEK_IN_MS} from './const';
+import {WEEK_IN_MILLISECONDS} from './const.js';
 
 const castTimeFormat = (value) => {
   return value < 10 ? `0${value}` : String(value);
@@ -14,7 +14,7 @@ const formatTime = (date) => {
 };
 
 const isExpired = (dueDate) => {
-  return (dueDate instanceof Date && dueDate < (Date.now() - WEEK_IN_MS));
+  return (dueDate instanceof Date && dueDate < (Date.now() - WEEK_IN_MILLISECONDS));
 };
 
 export {formatTime, isExpired};
