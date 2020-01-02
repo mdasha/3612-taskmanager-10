@@ -1,5 +1,10 @@
 import {WEEK_IN_MILLISECONDS} from './const.js';
 
+const RenderPosition = {
+  AFTERBEGIN: `afterbegin`,
+  BEFOREEND: `beforeend`
+};
+
 const castTimeFormat = (value) => {
   return value < 10 ? `0${value}` : String(value);
 };
@@ -17,4 +22,22 @@ const isExpired = (dueDate) => {
   return (dueDate instanceof Date && dueDate < (Date.now() - WEEK_IN_MILLISECONDS));
 };
 
-export {formatTime, isExpired};
+const createElement = (template) => {
+  const newElement = document.createElement(`div`);
+  newElement.innerHTML = template;
+
+  return newElement.firstChild;
+};
+
+const render = (container, element, place) => {
+  switch (place) {
+    case RenderPosition.AFTERBEGIN:
+      container.prepend(element);
+      break;
+    case RenderPosition.BEFOREEND:
+      container.append(element);
+      break;
+  }
+};
+
+export {formatTime, isExpired, RenderPosition, createElement, render};

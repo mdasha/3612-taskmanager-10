@@ -1,5 +1,5 @@
 import {monthNames} from '../const.js';
-import {formatTime, isExpired} from '../utils.js';
+import {formatTime, isExpired, createElement} from '../utils.js';
 
 const createHashtagsMarkup = (hashtags) => {
   return hashtags
@@ -78,4 +78,25 @@ const createCardTemplate = (task) => {
   );
 };
 
-export {createCardTemplate};
+export default class Card {
+  constructor(task) {
+    this._element = null;
+    this._task = task;
+  }
+
+  getTemplate() {
+    return createCardTemplate(this._task);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
