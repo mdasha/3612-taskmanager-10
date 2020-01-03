@@ -39,3 +39,4 @@ const replace = (newComponent, oldComponent) => {
 };
 
 export {RenderPosition, createElement, render, remove, replace};
+
