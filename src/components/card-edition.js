@@ -1,5 +1,6 @@
 import {colors, days, monthNames} from '../const.js';
-import {formatTime, isExpired, createElement} from '../utils.js';
+import {formatTime, isExpired} from '../utils/common.js';
+import AbstractComponent from './abstract-component.js';
 
 const createColorsMarkup = (currentColor) => {
   return colors
@@ -172,9 +173,10 @@ const createCardEditTemplate = (task) => {
   );
 };
 
-export default class CardEdition {
+export default class CardEdition extends AbstractComponent {
   constructor(task) {
-    this._element = null;
+    super();
+
     this._task = task;
   }
 
@@ -182,15 +184,8 @@ export default class CardEdition {
     return createCardEditTemplate(this._task);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setSubmitHandler(handler) {
+    this.getElement().querySelector(`form`)
+      .addEventListener(`submit`, handler);
   }
 }
