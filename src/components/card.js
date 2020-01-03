@@ -1,5 +1,6 @@
 import {monthNames} from '../const.js';
-import {formatTime, isExpired, createElement} from '../utils.js';
+import {formatTime, isExpired} from '../utils/common.js';
+import AbstractComponent from './abstract-component.js';
 
 const createHashtagsMarkup = (hashtags) => {
   return hashtags
@@ -78,9 +79,10 @@ const createCardTemplate = (task) => {
   );
 };
 
-export default class Card {
+export default class Card extends AbstractComponent {
   constructor(task) {
-    this._element = null;
+    super();
+
     this._task = task;
   }
 
@@ -88,15 +90,8 @@ export default class Card {
     return createCardTemplate(this._task);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setEditButtonClickHandler(handler) {
+    this.getElement().querySelector(`.card__btn--edit`)
+      .addEventListener(`click`, handler);
   }
 }
