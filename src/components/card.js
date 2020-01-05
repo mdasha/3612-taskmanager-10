@@ -1,5 +1,5 @@
-import {monthNames, WEEK_IN_MILLISECONDS} from '../const.js';
-import {formatTime} from '../utils/common.js';
+import {WEEK_IN_MILLISECONDS} from '../const.js';
+import {formatTime, formatDate} from '../utils/common.js';
 import AbstractComponent from './abstract-component.js';
 
 const createHashtagsMarkup = (hashtags) => {
@@ -32,7 +32,7 @@ const createCardTemplate = (task) => {
   const isExpired = dueDate instanceof Date && dueDate < (Date.now() - WEEK_IN_MILLISECONDS);
   const isDateShowing = !!dueDate;
 
-  const date = isDateShowing ? `${dueDate.getDate()} ${monthNames[dueDate.getMonth()]}` : ``;
+  const date = isDateShowing ? formatDate(dueDate) : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
 
   const hashtags = createHashtagsMarkup(Array.from(tags));
