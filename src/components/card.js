@@ -1,5 +1,4 @@
-import {WEEK_IN_MILLISECONDS} from '../const.js';
-import {formatTime, formatDate} from '../utils/common.js';
+import {formatDate, formatTime, isOverdueDate} from '../utils/common.js';
 import AbstractComponent from './abstract-component.js';
 
 const createHashtagsMarkup = (hashtags) => {
@@ -28,12 +27,13 @@ const createButtonMarkup = (name, isActive) => {
 };
 
 const createCardTemplate = (task) => {
-  const {description, tags, dueDate, color, repeatingDays} = task;
-  const isExpired = dueDate instanceof Date && dueDate < (Date.now() - WEEK_IN_MILLISECONDS);
+  const {description: notSanitizedDescription, tags, dueDate, color, repeatingDays} = task;
+  const isExpired = dueDate instanceof Date && isOverdueDate(dueDate, new Date());
   const isDateShowing = !!dueDate;
 
   const date = isDateShowing ? formatDate(dueDate) : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
+  const description = window.he.encode(notSanitizedDescription);
 
   const hashtags = createHashtagsMarkup(Array.from(tags));
   const editButton = createButtonMarkup(`edit`, true);
