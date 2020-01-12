@@ -66,7 +66,7 @@ export default class TaskController {
     });
 
     this._taskEditComponent.setSubmitHandler(() => {
-      this._replaceEditToTask()
+      this._replaceEditToTask();
     });
 
     this._taskEditComponent.setSubmitHandler(() => {
@@ -142,4 +142,4 @@ export default class TaskController {
   }
 }
 
-export {Mode, EmptyTask}
+export {Mode, EmptyTask};

@@ -48,6 +48,6 @@ export default class Filter extends AbstractComponent {
     this.getElement().addEventListener(`change`, (evt) => {
       const filterName = getFilterNameById(evt.target.id);
       handler(filterName);
-    })
+    });
   }
 }

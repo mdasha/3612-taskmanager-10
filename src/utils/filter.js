@@ -22,7 +22,7 @@ const getOverdueTasks = (tasks, date) => {
     }
 
     return isOverdueDate(dueDate, date);
-  })
+  });
 };
 
 const getRepeatingTasks = (tasks) => {
@@ -40,7 +40,7 @@ const getTasksInOneDay = (tasks, date) => {
 const getTasksByFilter = (tasks, filterType) => {
   const nowDate = new Date();
 
-  switch(filterType) {
+  switch (filterType) {
     case FilterType.ALL:
       return getNotArchiveTasks(tasks);
     case FilterType.ARCHIVE:
@@ -60,4 +60,4 @@ const getTasksByFilter = (tasks, filterType) => {
   return tasks;
 };
 
-export {getArchiveTasks, getNotArchiveTasks, getFavouriteTasks, getOverdueTasks, getRepeatingTasks, getTasksWithHashtags, getTasksInOneDay, getTasksByFilter}
+export {getArchiveTasks, getNotArchiveTasks, getFavouriteTasks, getOverdueTasks, getRepeatingTasks, getTasksWithHashtags, getTasksInOneDay, getTasksByFilter};

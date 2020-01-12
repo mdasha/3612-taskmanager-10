@@ -25,7 +25,7 @@ export default class FilterController {
         name: filterType,
         count: getTasksByFilter(allTasks, filterType).length,
         checked: filterType === this._activeFilterType
-      }
+      };
     });
 
     const oldComponent = this._filterComponent;

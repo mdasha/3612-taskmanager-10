@@ -88,7 +88,7 @@ const createCardEditTemplate = (task, options = {}) => {
 
   const description = window.he.encode(currentDescription);
   const isExpired = dueDate instanceof Date && isOverdueDate(dueDate, new Date());
-  const isBlockSaveButton =  (isRepeatingTask && !isRepeating(activeRepeatingDays)) || !isAllowableDescriptionLength(description);
+  const isBlockSaveButton = (isRepeatingTask && !isRepeating(activeRepeatingDays)) || !isAllowableDescriptionLength(description);
   const date = (isDateShowing && dueDate) ? formatDate(dueDate) : ``;
   const time = (isDateShowing && dueDate) ? formatTime(dueDate) : ``;
   const repeatClass = isRepeatingTask ? `card--repeat` : ``;
@@ -233,7 +233,7 @@ export default class CardEdition extends AbstractSmartComponent {
   }
 
   removeElement() {
-    if(this._flatpickr) {
+    if (this._flatpickr) {
       this._flatpickr.destroy();
       this._flatpickr = null;
     }
